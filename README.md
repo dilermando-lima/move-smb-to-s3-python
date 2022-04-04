@@ -1,4 +1,4 @@
-# move-smb-s3-python
+# move-smb-to-s3-python
 
 This project is a `lamda aws project` in charge to get **files** from samba storage to aws s3 bucket.
 
