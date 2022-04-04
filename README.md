@@ -12,7 +12,7 @@ This project is a `lamda aws project` in charge to get **files** from samba stor
   * [Run application locally](#run-application-locally)
       - [Environment variables](#environment-variables)
       - [Starting aws and samba locally](#starting-aws-and-samba-locally)
-      - [Preparing folder smb/etransfer locally](#preparing-folder-smb-etransfer-locally)
+      - [Preparing folder smb locally](#preparing-folder-smb-locally)
       - [Run application by command line](#run-application-by-command-line)
       - [Run application by visual studio code](#run-application-by-visual-studio-code)
       - [Run unit tests and coverage by command line](#run-unit-tests-and-coverage-by-command-line)
@@ -142,7 +142,7 @@ aws --endpoint-url=http://localhost:4566 s3 ls s3://bucket1/folders3/
 ```
 > required installed docker, docker-compose and aws cli
 
-#### Preparing folder smb/etransfer locally
+#### Preparing folder smb locally
 We can remove and recreate all local files as we need with scripts below:
 ```bash
 # remove all files from smb mount

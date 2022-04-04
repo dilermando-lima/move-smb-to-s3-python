@@ -5,7 +5,7 @@ from enum import Enum
 
 class ActionEvent(str,Enum):
     """
-    The main process is about executing process to move all files from smb/etransfer to s3 with DATE equals last workday
+    The main process is about executing process to move all files from smb to s3 with DATE equals last workday
     It doesn't require any extra argument ( date will be calculated by now )
     
     Can be called manually passion 'action=transfer_on_current_date'
@@ -16,7 +16,7 @@ class ActionEvent(str,Enum):
 
     """
     This action is a litle bit different to "transfer_on_specific_date" so requires "date" parameter
-    The main process is about executing process to move all files from smb/etransfer to s3 with specific date
+    The main process is about executing process to move all files from smb to s3 with specific date
     
     Requires "date" as parameter
     
