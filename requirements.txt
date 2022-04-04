@@ -1,0 +1,4 @@
+botocore==1.21.35
+smbprotocol==1.7.0
+boto3==1.18.35
+coverage

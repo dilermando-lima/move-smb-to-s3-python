@@ -1,0 +1,35 @@
+version: "3.9"
+
+# ===== start up containers
+# docker-compose --file ./local/docker-compose.yml --env-file ./local/local.env up -d
+
+# ===== connect to smb
+# smb://$SMB_USER:$SMB_PASS@127.0.0.1:445
+# smb://user1:pass1@127.0.0.1:445
+
+services:
+  smb_server:
+    container_name: smb_server_acctrigger
+    image: dperson/samba
+    environment:
+      TZ: $LOCAL_SMB_TIME_ZONE
+    stdin_open: true
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    volumes:
+      - $LOCAL_SMB_MOUNT_PATH:/mount:z
+    command: '-s "$LOCAL_SMB_MOUNT_NAME;/mount;yes;no;no;$LOCAL_SMB_USER" -u "$LOCAL_SMB_USER;$LOCAL_SMB_PASS" -p -r'
+
+  aws_local:
+    container_name: aws_local_acctrigger
+    image: localstack/localstack:0.14
+    environment:
+      SERVICES: s3
+      EDGE_PORT: $LOCAL_AWS_CONTAINER_EDGE_PORT
+      DEFAULT_REGION: $LOCAL_AWS_CONTAINER_DEFAULT_REGION
+    ports:
+      - "$LOCAL_AWS_CONTAINER_EDGE_PORT:$LOCAL_AWS_CONTAINER_EDGE_PORT"
+

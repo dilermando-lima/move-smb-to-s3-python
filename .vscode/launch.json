@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "lambda locally",
+            "type": "python",
+            "request": "launch",
+            "envFile": "${workspaceFolder}/local/local.env",
+            "console": "internalConsole",
+            "module": "run"
+        }
+    ]
+}
